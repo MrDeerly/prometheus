@@ -4,12 +4,10 @@ import { Button, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap'
 import { EditorView, highlightSpecialChars, keymap, ViewUpdate, placeholder } from '@codemirror/view';
 import { EditorState, Prec, Compartment } from '@codemirror/state';
 import { indentOnInput, syntaxTree } from '@codemirror/language';
-import { history, historyKeymap } from '@codemirror/history';
-import { defaultKeymap, insertNewlineAndIndent } from '@codemirror/commands';
+import { defaultKeymap, insertNewlineAndIndent, history, historyKeymap } from '@codemirror/commands';
 import { bracketMatching } from '@codemirror/matchbrackets';
 import { closeBrackets, closeBracketsKeymap } from '@codemirror/closebrackets';
 import { highlightSelectionMatches } from '@codemirror/search';
-import { commentKeymap } from '@codemirror/comment';
 import { lintKeymap } from '@codemirror/lint';
 import { autocompletion, completionKeymap, CompletionContext, CompletionResult } from '@codemirror/autocomplete';
 import { baseTheme, lightTheme, darkTheme, promqlHighlighter } from './CMTheme';
