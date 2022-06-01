@@ -39,8 +39,8 @@
     "@codemirror/lint": "^0.20.3",
     "@codemirror/state": "^0.20.0",
     "@codemirror/view": "^0.20.7",
-    "@lezer/common": "^0.15.12",
-    "@lezer/lr": "^0.15.8",
+    "@lezer/common": "^0.16.0",
+    "@lezer/lr": "^0.16.3",
     "@types/lru-cache": "^5.1.1",
     "isomorphic-fetch": "^3.0.0",
     "nock": "^13.2.4"
@@ -51,7 +51,7 @@
     "@codemirror/lint": "^0.20.3",
     "@codemirror/state": "^0.20.0",
     "@codemirror/view": "^0.20.7",
-    "@lezer/common": "^0.15.12"
+    "@lezer/common": "^0.16.0"
   },
   "prettier": {
     "singleQuote": true,
