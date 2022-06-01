@@ -3,7 +3,7 @@ import { Button, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap'
 
 import { EditorView, highlightSpecialChars, keymap, ViewUpdate, placeholder } from '@codemirror/view';
 import { EditorState, Prec, Compartment } from '@codemirror/state';
-import { indentOnInput, syntaxTree, bracketMatching } from '@codemirror/language';
+import {indentOnInput, syntaxTree, bracketMatching, syntaxHighlighting} from '@codemirror/language';
 import { defaultKeymap, insertNewlineAndIndent, history, historyKeymap } from '@codemirror/commands';
 import { highlightSelectionMatches } from '@codemirror/search';
 import { lintKeymap } from '@codemirror/lint';
@@ -106,7 +106,7 @@ const ExpressionInput: FC<CMExpressionInputProps> = ({
         ),
       });
     const dynamicConfig = [
-      enableHighlighting ? promqlHighlighter : [],
+      enableHighlighting ? syntaxHighlighting(promqlHighlighter) : [],
       promqlExtension.asExtension(),
       theme === 'dark' ? darkTheme : lightTheme,
     ];
