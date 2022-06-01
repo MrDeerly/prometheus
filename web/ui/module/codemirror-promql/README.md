@@ -29,14 +29,13 @@ of [CodeMirror Next](https://codemirror.net/6), as they are a peer dependency to
 packages you need to install:
 
 * **@codemirror/autocomplete**
-* **@codemirror/highlight**
 * **@codemirror/language**
 * **@codemirror/lint**
 * **@codemirror/state**
 * **@codemirror/view**
 
 ```bash
-npm install --save @codemirror/autocomplete @codemirror/highlight @codemirror/language @codemirror/lint @codemirror/state @codemirror/view
+npm install --save @codemirror/autocomplete @codemirror/language @codemirror/lint @codemirror/state @codemirror/view
 ```
 
 **Note 2**: that's the minimum required to install the lib. You would probably need to install as well the dependency
