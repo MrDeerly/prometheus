@@ -153,7 +153,7 @@ const ExpressionInput: FC<CMExpressionInputProps> = ({
               },
             },
           ]),
-          Prec.override(
+          Prec.highest(
             keymap.of([
               {
                 key: 'Enter',
