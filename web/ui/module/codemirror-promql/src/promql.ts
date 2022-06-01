@@ -12,12 +12,12 @@
 // limitations under the License.
 
 import { parser } from 'lezer-promql';
-import { styleTags, tags } from '@codemirror/highlight';
 import { Extension } from '@codemirror/state';
 import { CompleteConfiguration, CompleteStrategy, newCompleteStrategy } from './complete';
 import { LintStrategy, newLintStrategy, promQLLinter } from './lint';
 import { CompletionContext } from '@codemirror/autocomplete';
 import { LRLanguage } from '@codemirror/language';
+import { styleTags, tags } from '@lezer/highlight';
 
 export enum LanguageType {
   PromQL = 'PromQL',
