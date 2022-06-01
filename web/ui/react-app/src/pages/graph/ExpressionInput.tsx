@@ -3,11 +3,18 @@ import { Button, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap'
 
 import { EditorView, highlightSpecialChars, keymap, ViewUpdate, placeholder } from '@codemirror/view';
 import { EditorState, Prec, Compartment } from '@codemirror/state';
-import {indentOnInput, syntaxTree, bracketMatching, syntaxHighlighting} from '@codemirror/language';
+import { indentOnInput, syntaxTree, bracketMatching, syntaxHighlighting } from '@codemirror/language';
 import { defaultKeymap, insertNewlineAndIndent, history, historyKeymap } from '@codemirror/commands';
 import { highlightSelectionMatches } from '@codemirror/search';
 import { lintKeymap } from '@codemirror/lint';
-import { autocompletion, completionKeymap, CompletionContext, CompletionResult, closeBrackets, closeBracketsKeymap } from '@codemirror/autocomplete';
+import {
+  autocompletion,
+  completionKeymap,
+  CompletionContext,
+  CompletionResult,
+  closeBrackets,
+  closeBracketsKeymap,
+} from '@codemirror/autocomplete';
 import { baseTheme, lightTheme, darkTheme, promqlHighlighter } from './CMTheme';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -132,13 +139,7 @@ const ExpressionInput: FC<CMExpressionInputProps> = ({
           autocompletion(),
           highlightSelectionMatches(),
           EditorView.lineWrapping,
-          keymap.of([
-            ...closeBracketsKeymap,
-            ...defaultKeymap,
-            ...historyKeymap,
-            ...completionKeymap,
-            ...lintKeymap,
-          ]),
+          keymap.of([...closeBracketsKeymap, ...defaultKeymap, ...historyKeymap, ...completionKeymap, ...lintKeymap]),
           placeholder('Expression (press Shift+Enter for newlines)'),
           dynamicConfigCompartment.of(dynamicConfig),
           // This keymap is added without precedence so that closing the autocomplete dropdown
