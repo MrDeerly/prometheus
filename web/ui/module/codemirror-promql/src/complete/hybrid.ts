@@ -131,7 +131,7 @@ function getMetricNameInVectorSelector(tree: SyntaxNode, state: EditorState): st
   return state.sliceDoc(currentNode.from, currentNode.to);
 }
 
-function arrayToCompletionResult(data: Completion[], from: number, to: number, includeSnippet = false, span = true): CompletionResult {
+function arrayToCompletionResult(data: Completion[], from: number, to: number, includeSnippet = false, validate = true): CompletionResult {
   const options = data;
   if (includeSnippet) {
     options.push(...snippets);
@@ -140,7 +140,7 @@ function arrayToCompletionResult(data: Completion[], from: number, to: number, i
     from: from,
     to: to,
     options: options,
-    span: span ? /^[a-zA-Z0-9_:]+$/ : undefined,
+    validFor: validate ? /^[a-zA-Z0-9_:]+$/ : undefined,
   } as CompletionResult;
 }
 
@@ -481,7 +481,7 @@ export class HybridComplete implements CompleteStrategy {
     const contexts = analyzeCompletion(state, tree);
     let asyncResult: Promise<Completion[]> = Promise.resolve([]);
     let completeSnippet = false;
-    let span = true;
+    let validate = true;
     for (const context of contexts) {
       switch (context.kind) {
         case ContextKind.Aggregation:
@@ -517,7 +517,7 @@ export class HybridComplete implements CompleteStrategy {
           });
           break;
         case ContextKind.Duration:
-          span = false;
+          validate = false;
           asyncResult = asyncResult.then((result) => {
             return result.concat(autocompleteNodes.duration);
           });
@@ -559,7 +559,7 @@ export class HybridComplete implements CompleteStrategy {
       }
     }
     return asyncResult.then((result) => {
-      return arrayToCompletionResult(result, computeStartCompletePosition(tree, pos), pos, completeSnippet, span);
+      return arrayToCompletionResult(result, computeStartCompletePosition(tree, pos), pos, completeSnippet, validate);
     });
   }
 
