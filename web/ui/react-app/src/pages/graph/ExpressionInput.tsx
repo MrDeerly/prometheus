@@ -63,7 +63,7 @@ export class HistoryCompleteStrategy implements CompleteStrategy {
           apply: q,
           info: q.length < 80 ? undefined : q,
         })),
-        span: /^[a-zA-Z0-9_:]+$/,
+        validFor: /^[a-zA-Z0-9_:]+$/,
       };
 
       if (res !== null) {
