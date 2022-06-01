@@ -136,7 +136,6 @@ const ExpressionInput: FC<CMExpressionInputProps> = ({
             ...closeBracketsKeymap,
             ...defaultKeymap,
             ...historyKeymap,
-            ...commentKeymap,
             ...completionKeymap,
             ...lintKeymap,
           ]),
