@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { parser } from 'lezer-promql';
+import { parser } from 'lezer-promql20';
 import { Extension } from '@codemirror/state';
 import { CompleteConfiguration, CompleteStrategy, newCompleteStrategy } from './complete';
 import { LintStrategy, newLintStrategy, promQLLinter } from './lint';

@@ -47,7 +47,7 @@ import {
   UnaryExpr,
   Unless,
   VectorSelector,
-} from 'lezer-promql';
+} from 'lezer-promql20';
 import { containsAtLeastOneChild, retrieveAllRecursiveNodes, walkThrough } from './path-finder';
 import { getType } from './type';
 import { buildLabelMatchers } from './matcher';
@@ -157,7 +157,7 @@ export class Parser {
   }
 
   private checkAggregationExpr(node: SyntaxNode): void {
-    // according to https://github.com/promlabs/lezer-promql/blob/master/src/promql.grammar#L26
+    // according to https://github.com/promlabs/lezer-promql20/blob/master/src/promql.grammar#L26
     // the name of the aggregator function is stored in the first child
     const aggregateOp = node.firstChild?.firstChild;
     if (!aggregateOp) {
@@ -191,7 +191,7 @@ export class Parser {
   private checkBinaryExpr(node: SyntaxNode): void {
     // Following the definition of the BinaryExpr, the left and the right
     // expression are respectively the first and last child
-    // https://github.com/promlabs/lezer-promql/blob/master/src/promql.grammar#L52
+    // https://github.com/promlabs/lezer-promql20/blob/master/src/promql.grammar#L52
     const lExpr = node.firstChild;
     const rExpr = node.lastChild;
     if (!lExpr || !rExpr) {
@@ -301,7 +301,7 @@ export class Parser {
     );
     let vectorSelectorName = '';
     // VectorSelector ( MetricIdentifier ( Identifier ) )
-    // https://github.com/promlabs/lezer-promql/blob/71e2f9fa5ae6f5c5547d5738966cd2512e6b99a8/src/promql.grammar#L200
+    // https://github.com/promlabs/lezer-promql20/blob/71e2f9fa5ae6f5c5547d5738966cd2512e6b99a8/src/promql.grammar#L200
     const vectorSelectorNodeName = walkThrough(node, MetricIdentifier, Identifier);
     if (vectorSelectorNodeName) {
       vectorSelectorName = this.state.sliceDoc(vectorSelectorNodeName.from, vectorSelectorNodeName.to);
