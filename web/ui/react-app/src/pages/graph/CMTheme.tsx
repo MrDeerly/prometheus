@@ -1,4 +1,5 @@
-import { HighlightStyle, tags } from '@codemirror/highlight';
+import { HighlightStyle } from '@codemirror/language';
+import { tags } from '@lezer/highlight';
 import { EditorView } from '@codemirror/view';
 
 export const baseTheme = EditorView.theme({
